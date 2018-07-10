@@ -1,36 +1,47 @@
+
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import java.util.*;
-import java.io.*;
-
 /**
  * @author Anh Tuan
  */
 public class FileHelper {
-    public static void main(String[] args) {
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader("C:\\tmp\\test.txt"));
-            System.out.println("Đọc nội dung file sử dụng phương thức readLine()");
-            String textInALine;
 
-            while ((textInALine = br.readLine()) != null) {
-                System.out.println(textInALine);
-                textInALine = br.readLine();
+    public static void writeToFile(String path, String content) {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(path), "utf-8");
+            Writer writer = new BufferedWriter(outputStreamWriter);
+            writer.write(content);
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static String readFromFile(String path) {
+        StringBuilder builder = new StringBuilder();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+            String line = bufferedReader.readLine();
+
+            while (line != null) {
+                builder.append(line);
+                builder.append(System.lineSeparator());
+                line = bufferedReader.readLine();
             }
-        } catch (IOException e) {
+            bufferedReader.close();
+            return builder.toString();
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                br.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
+        return "";
     }
 }
