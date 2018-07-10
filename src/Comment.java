@@ -5,22 +5,21 @@
  */
 
 /**
- *
  * @author Anh Tuan
  */
 public class Comment {
-    int id;
-  String like;
-  String commet;
+
+    private int id;
+    private String like;
+    private String comment;
 
     public Comment() {
     }
 
-    public Comment(int id, String commet) {
+    public Comment(int id, String comment) {
         this.id = id;
-        this.commet = commet;
+        this.comment = comment;
     }
-  
 
     public int getId() {
         return id;
@@ -38,17 +37,17 @@ public class Comment {
         this.like = like;
     }
 
-    public String getCommet() {
-        return commet;
+    public String getComment() {
+        return comment;
     }
 
-    public void setCommet(String commet) {
-        this.commet = commet;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Override
     public String toString() {
-        return "Comment{" + "id=" + id + ", like=" + like + ", commet=" + commet + '}';
+        return "Comment{" + "id=" + id + ", like=" + like + ", comment=" + comment + '}';
     }
-  
+
 }
