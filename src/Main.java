@@ -8,7 +8,7 @@ public class Main {
         System.out.println("data: " + str);
         List<String> pieces = StringHelper.splitBySpaces(str);
         for (String s : pieces) {
-            System.out.println("character: " + s);
+            System.out.println("piece: " + s);
         }
     }
 
