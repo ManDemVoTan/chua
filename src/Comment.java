@@ -12,14 +12,18 @@ public class Comment {
     private int id;
     private String like;
     private String comment;
+    private String post;
 
     public Comment() {
     }
 
-    public Comment(int id, String comment) {
+    public Comment(int id, String like, String comment, String post) {
         this.id = id;
+        this.like = like;
         this.comment = comment;
+        this.post = post;
     }
+    
 
     public int getId() {
         return id;
@@ -45,9 +49,21 @@ public class Comment {
         this.comment = comment;
     }
 
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
     @Override
     public String toString() {
-        return "Comment{" + "id=" + id + ", like=" + like + ", comment=" + comment + '}';
+        return "Comment{" + "id=" + id + ", like=" + like + ", comment=" + comment + ", post=" + post + '}';
     }
+    
+    
+
+    
 
 }
