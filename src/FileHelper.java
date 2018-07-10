@@ -6,19 +6,16 @@
 
 import java.util.*;
 import java.io.*;
+
 /**
- *
- 
  * @author Anh Tuan
  */
 public class FileHelper {
     public static void main(String[] args) {
         BufferedReader br = null;
-       try {   
-            br = new BufferedReader(new FileReader("C:\\tmp\\test.txt"));       
-
+        try {
+            br = new BufferedReader(new FileReader("C:\\tmp\\test.txt"));
             System.out.println("Đọc nội dung file sử dụng phương thức readLine()");
-
             String textInALine;
 
             while ((textInALine = br.readLine()) != null) {
@@ -34,6 +31,6 @@ public class FileHelper {
                 e.printStackTrace();
             }
         }
- 
+
     }
 }
