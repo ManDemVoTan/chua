@@ -14,33 +14,34 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Anh Tuan
  */
-public class FileHelp1 { 
-    public  void GhiObject(){
+public class FileHelp1 {
+
+    public void GhiObject(String content, String path) {
         try {
-            ObjectOutputStream ooss = null;
+            ObjectOutputStream oos = null;
             Post main = new Post();
-            ooss = new ObjectOutputStream(new FileOutputStream("D:\\project-Chua\\demo4.dat"));
-            ooss.writeObject(main);
-            } catch (FileNotFoundException ex) {
+            oos = new ObjectOutputStream(new FileOutputStream(path));
+            oos.writeObject(content);
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(FileHelp1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(FileHelp1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
-    public void DocObject(){
+
+    public String DocObject(String path) {
+        String result = "";
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("demo4.dat")));
-          Object obj=  ois.readObject();
-          Post main = (Post)obj;
+            ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)));
+            Object obj = ois.readObject();
+            Post main = (Post) obj;
             System.out.println(main);
-          
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DocObject.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -53,8 +54,7 @@ public class FileHelp1 {
             } catch (IOException ex) {
                 Logger.getLogger(DocObject.class.getName()).log(Level.SEVERE, null, ex);
             }
-     }
-        
+        }
+        return result;
     }
-  
-    }
+}
