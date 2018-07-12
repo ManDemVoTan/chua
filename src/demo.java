@@ -1,10 +1,18 @@
-import java.util.ArrayList;
+
 import java.util.List;
 
-public class Main {
+
+public class demo {
+    private String phuong = "Phuong";
+    private String linh = "linh";
+    private String dung = "dung";
+    private String hoang = "hoang";
     private static final String PATH = "data.txt";
 
     public static void main(String[] args) {
+
+
+        
         String str = FileHelper.readFromFile(PATH);
         System.out.println("data: " + str);
         List<String> pieces = StringHelper.splitBySpaces(str);
